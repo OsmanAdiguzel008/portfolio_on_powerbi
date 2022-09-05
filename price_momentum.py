@@ -16,8 +16,10 @@ import requests
 def get_bist100_ticker():
     wl = {"components":"https://tr.wikipedia.org/wiki/Borsa_İstanbul"}
     page = requests.get(wl["components"])
+    print(page)
     soup = BeautifulSoup(page.text, "html.parser")
     value = soup.find_all("table",class_="wikitable")
+    print(value)
     text = value[0].text
     list_ = []
     for i in text.split("\n\n"):
@@ -43,21 +45,26 @@ def get_returns(tickers):
         df = yf.download(
                            tickers = ticker,
                            period = "3mo",
-                           interval = "1wk"
+                           interval = "1d"
                          )
+        if len(df) > 0:
+            df = df.resample("W").last()
         
-        ret = df["Adj Close"].pct_change().fillna(0)
-        ret_ind = 100
-        for i in ret.values:
-            ret_ind = ret_ind * (i + 1)
-        ret_val = ret_ind / 100 - 1
-        print(ticker, "=", ret_val*4)
-        dic[ticker] = ret_val*4
+            ret = df["Adj Close"].pct_change().fillna(0)
+            if df.index.max() > pd.to_datetime(dt.datetime.today().date()):
+                ret = ret.iloc[:-1]
+            ret_ind = 100
+            for i in ret.values:
+                ret_ind = ret_ind * (i + 1)
+            ret_val = ret_ind / 100 - 1
+            print(ticker, "=", ret_val*4)
+            dic[ticker] = ret_val*4
     return dic
 
-if __name__ == "__main__":
+if (__name__ == "__main__") | (__name__ != "__main__"):
 
     tickers    = get_bist100_ticker()
+    pd.Series(tickers).to_csv("C:/myml/powerbi/tickers.csv",index=False)
     dic        = get_returns(tickers)
     df = pd.DataFrame.from_dict(dic, orient="index", columns=["returns"])
     df.index.name = "ticker"

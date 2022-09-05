@@ -14,6 +14,7 @@ from bs4 import BeautifulSoup
 import requests
 import sklearn.linear_model as skl_lm
 import statsmodels.api as sm
+import traceback
 
 
 def get_financials_annual(ticker):
@@ -79,7 +80,7 @@ def get_bist100_ticker():
     return (a[1] + ".IS").to_list()
 
 def calculate_fundamental(fund, *args, **kwargs):
-    global ret
+    global ret,fundamentals
     b_e  = fund["Total Assets"] - fund["Total Liab"]
     earn = (fund["Net Income"] - fund["Retained Earnings"]) / fund["Net Income"]
     roe  = fund["Net Income"] / fund["Total Stockholder Equity"]
@@ -88,7 +89,7 @@ def calculate_fundamental(fund, *args, **kwargs):
             )-(fund["Selling General Administrative"] + fund["Interest Expense"]
                )) / b_e
     cpa  = (fund["Total Cash From Operating Activities"] - fund["Ebit"]
-            ) / annual["Total Assets"]
+            ) / fund["Total Assets"]
     gpa  = (fund["Total Revenue"] + fund["Cost Of Revenue"]) / fund["Net Income"]
     #npy  = (""" NO DATA FOR CALCULATION """) / annual["Net Income"]
     
@@ -102,9 +103,18 @@ def calculate_fundamental(fund, *args, **kwargs):
                                          # please disregard dates after this
     dates = fundamentals.reset_index().date.to_list()
     ret = price_ret(*args, **kwargs)
-    ret = ret[ret.index.isin(dates)]
-    fundamentals["ret"] = ret.to_list()
-    return fundamentals
+    print(ret.tail())
+    print(fundamentals.tail())
+    try:
+        ret = ret[ret.index.isin(dates)].to_frame(name="ret")
+        ret["ticker"] = fundamentals.index[0][1]
+        ret.index.name = "date"
+        ret = ret.reset_index().set_index(["date","ticker"])
+        fundamentals = fundamentals.merge(ret,right_index=True,left_index=True)
+    except: # if not enough price data
+        fundamentals["ret"] = np.nan
+    print(fundamentals)
+    return fundamentals#.fillna(0)
 
 def price_ret(ticker, ret,  period="5y", interval="1mo"):
     df = yf.download(
@@ -113,7 +123,7 @@ def price_ret(ticker, ret,  period="5y", interval="1mo"):
                        interval = interval
                      )
     if (ret == "q") | (ret == "quarterly"):
-        df = df.resample("3M").last().Close.pct_change().dropna()
+        df = df.resample("M").last().Close.pct_change().dropna()
     elif (ret == "a") | (ret == "annual"):
         df = df.resample("A").last().Close.pct_change().dropna()
     else:
@@ -164,10 +174,11 @@ def get_last_step(tickers):
             df = df.append(data)
         except Exception as e:
             print(f"ERROR on the ticker: {ticker}")
+            print(traceback.print_exc())
     return df,fund1
 
 
-if __name__ == "__main__":
+if (__name__ == "__main__") | (__name__ == "__main__"):
     
     tickers    = get_bist100_ticker()
  
