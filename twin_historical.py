@@ -7,7 +7,6 @@ Created on Sat Sep  3 00:01:39 2022
 
 import pandas as pd
 import yfinance as yf
-import fundamental_momentum as fm
 from bs4 import BeautifulSoup
 import requests
 
@@ -69,21 +68,23 @@ def historical_momentum():
     weekly = daily.resample("W").last()
     wk_ret = weekly["Adj Close"].pct_change().fillna(0)
     past   = wk_ret.iloc[-25:-9]
-    past_loop = wk_ret.iloc[-10:-1]
-    returns = pd.DataFrame()
+    past_loop = wk_ret.iloc[-9:-1]
+    momentum = pd.DataFrame()
+    returns  = pd.DataFrame()
     for i in range(len(past_loop)):
         temp   =  past.iloc[i:].append(past_loop.iloc[:i+1])
         cumret = (1 + temp).cumprod() - 1
         column = cumret.index.max()
-        returns[column] = cumret.iloc[-1]
-    return returns
+        momentum[column] = cumret.iloc[-1]
+        returns[column] = temp.iloc[-1]
+    return momentum, returns
 
-def historical_return(fund, hist):
+def historical_return(fund, hist, returns):
     df = pd.DataFrame()
     for col in range(len(hist.columns)-1):
         prc  = hist.iloc[:,col].to_frame(name="returns")
         port = split_portfolios(fund, prc)
-        ret  = hist.iloc[:,col+1].to_frame(name="n_ret")
+        ret  = returns.iloc[:,col+1].to_frame(name="n_ret") #ret olarak momentum kullanmisim onu normal hist olarak duzenle
         date = hist.iloc[:,col+1].name
         temp2 = pd.DataFrame()
         for i in port.port_num.unique():
@@ -93,7 +94,7 @@ def historical_return(fund, hist):
             temp2 = temp2.append(temp)
         temp2 = temp2.reset_index()
         temp2["date"] = date
-        df= df.append(temp2)
+        df = df.append(temp2)
     return df
 
 def portfolios_index_return(historical_returns):
@@ -115,7 +116,7 @@ if __name__ == "__main__":
     port = pd.read_csv("C:/myml/powerbi/twin_momentum_portfolios.csv")
     fund = pd.read_csv("C:/myml/powerbi/fundamental_momentum.csv").set_index("ticker")
     
-    hist = historical_momentum()
-    historical_portfolios = historical_return(fund, hist)
+    hist, returns = historical_momentum()
+    historical_portfolios = historical_return(fund, hist, returns)
     historical_returns = historical_portfolios.groupby(["port_num","date"]).mean().reset_index()
     portfolio_index_returns = portfolios_index_return(historical_returns)

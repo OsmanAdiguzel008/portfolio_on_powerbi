@@ -85,9 +85,9 @@ def get_returns(df):
 if __name__ == "__main__":
     
     if dt.datetime.today().day == 1:
-        runpy.run_module(mod_name="fundamental_momentum")
+        runpy.run_path("C:/myml/powerbi/fundamental_momentum.py")
     if dt.date.today().weekday() == 0:
-        runpy.run_module(mod_name="price_momentum")
+        runpy.run_path("C:/myml/powerbi/price_momentum.py")
     fun = pd.read_csv("C:/myml/powerbi/fundamental_momentum.csv", index_col = "ticker")
     prc = pd.read_csv("C:/myml/powerbi/price_momentum.csv", index_col = "ticker")
     
