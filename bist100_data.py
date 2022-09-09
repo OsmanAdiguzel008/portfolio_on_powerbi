@@ -49,6 +49,7 @@ class bist100:
               auto_adjust=True, prepost=True, threads=True, proxy=None):
         if ticker == "all":
             ticker = self.components.ticker.to_list()
+            ticker = ticker + ["ALKIM"]
             ticker = self.listToString(ticker)
         else:
             ticker = ticker + ".IS"
@@ -94,3 +95,5 @@ if __name__ == "__main__":
     bist = bist100()
     components = bist.components
     price_data = bist.get_price_clear()
+    price_data.to_csv("C:/myml/powerbi/data/price_data.csv", index=False)
+    components.to_csv("C:/myml/powerbi/data/components.csv", index=False)

@@ -64,7 +64,11 @@ def get_returns(tickers):
 if (__name__ == "__main__") | (__name__ != "__main__"):
 
     tickers    = get_bist100_ticker()
-    pd.Series(tickers).to_csv("C:/myml/powerbi/tickers.csv",index=False)
+    if "CANTE.IS" in tickers:
+        tickers.remove("CANTE.IS")
+    if "ALKIM.IS" not in tickers:
+        tickers.append("ALKIM.IS")
+    pd.Series(tickers).to_csv("C:/myml/powerbi/data/tickers.csv",index=False)
     dic        = get_returns(tickers)
     df = pd.DataFrame.from_dict(dic, orient="index", columns=["returns"])
     df.index.name = "ticker"

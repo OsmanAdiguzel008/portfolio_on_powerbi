@@ -178,11 +178,14 @@ def get_last_step(tickers):
     return df,fund1
 
 
-if (__name__ == "__main__") | (__name__ == "__main__"):
+if (__name__ == "__main__") | (__name__ != "__main__"):
     
     tickers    = get_bist100_ticker()
- 
+    if "CANTE.IS" in tickers:
+        tickers.remove("CANTE.IS")
+    if "ALKIM.IS" not in tickers:
+        tickers.append("ALKIM.IS")
     df, fund1    = get_last_step(tickers)
     pred, result = get_prediction(df,fund1)
-    pred.to_csv("fundamental_momentum.csv")
+    pred.to_csv("c:/myml/powerbi/data/fundamental_momentum.csv")
     

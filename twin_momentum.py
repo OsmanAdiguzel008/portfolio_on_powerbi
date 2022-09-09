@@ -88,8 +88,8 @@ if __name__ == "__main__":
         runpy.run_path("C:/myml/powerbi/fundamental_momentum.py")
     if dt.date.today().weekday() == 0:
         runpy.run_path("C:/myml/powerbi/price_momentum.py")
-    fun = pd.read_csv("C:/myml/powerbi/fundamental_momentum.csv", index_col = "ticker")
-    prc = pd.read_csv("C:/myml/powerbi/price_momentum.csv", index_col = "ticker")
+    fun = pd.read_csv("C:/myml/powerbi/data/fundamental_momentum.csv", index_col = "ticker")
+    prc = pd.read_csv("C:/myml/powerbi/data/price_momentum.csv", index_col = "ticker")
     
     predictions = split_portfolios(fun, prc)
     result = get_returns(predictions)
@@ -98,5 +98,5 @@ if __name__ == "__main__":
                                left_index=True, right_index=True)    
     twin_matrix.index.name = "port_num"
     twin_matrix = twin_matrix.reset_index()    
-    result.to_csv("C:/myml/powerbi/twin_returns_equal_weight.csv")
-    map_.to_csv("C:/myml/powerbi/twin_momentum_portfolios.csv")
+    twin_matrix.to_csv("C:/myml/powerbi/data/twin_matrix.csv", index = False)
+    map_.to_csv("C:/myml/powerbi/data/twin_momentum_portfolios.csv", index=False)

@@ -61,6 +61,7 @@ def historical_momentum():
     # the parts get historical price momentum for 3 months
     #tickers = pd.read_csv("tickers.csv")["0"].to_list() 
     tickers = get_bist100_ticker()
+    tickers.remove("CANTE.IS")
     t_s = ""
     for tic in tickers:
         t_s += f"{tic} "
@@ -113,10 +114,14 @@ def portfolios_index_return(historical_returns):
 
 if __name__ == "__main__":
 
-    port = pd.read_csv("C:/myml/powerbi/twin_momentum_portfolios.csv")
-    fund = pd.read_csv("C:/myml/powerbi/fundamental_momentum.csv").set_index("ticker")
+    port = pd.read_csv("C:/myml/powerbi/data/twin_momentum_portfolios.csv")
+    fund = pd.read_csv("C:/myml/powerbi/data/fundamental_momentum.csv").set_index("ticker")
     
     hist, returns = historical_momentum()
     historical_portfolios = historical_return(fund, hist, returns)
     historical_returns = historical_portfolios.groupby(["port_num","date"]).mean().reset_index()
     portfolio_index_returns = portfolios_index_return(historical_returns)
+    
+    historical_portfolios.to_csv("C:/myml/powerbi/data/historical_portfolios.csv", index=False)
+    historical_returns.to_csv("C:/myml/powerbi/data/historical_returns.csv", index=False)
+    portfolio_index_returns.to_csv("C:/myml/powerbi/data/portfolio_index_returns.csv", index=False)

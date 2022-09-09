@@ -1,13 +1,18 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Sep  1 16:14:13 2022
+Created on Wed Sep  7 15:59:07 2022
 
 @author: oadiguzel
 """
 
-print("its_work")
-x = 1
-
+class test:
+    def __init__(self):
+        pass
+    
+    @property
+    def print_HW(self):
+        return "Hello World!"
+        
 if __name__ == "__main__":
-    print("its_work_2")
-    y = 1
+    t = test()
+    t.print_HW
