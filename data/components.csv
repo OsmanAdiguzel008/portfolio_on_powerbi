@@ -1,0 +1,99 @@
+ticker,name,sector,sub_sector,city,founding
+ADESE,ADESE Gayrimenkul Yatırım,Mali Kuruluş,Gayrimenkul Yatırım Ortaklığı,Konya,
+AGHOL,AG Anadolu Grubu Holding,Mali Kuruluş,Holding,İstanbul,
+AKBNK,Akbank,Bankacılık,Bankacılık,İstanbul,
+AKSA,AKSA Akrilik Kimya,İmalat,"Kimya, İlaç, Petrol, Lastik ve Plastik Ürünler",Yalova,
+AKSEN,AKSA Enerji Üretim,İmalat,Enerji,İstanbul,
+ALGYO,Alarko Gayrimenkul Yatırım Ortaklığı,Mali Kuruluş,Gayrimenkul Yatırım Ortaklığı,İstanbul,
+ALARK,Alarko Holding,Mali Kuruluş,Holding,İstanbul,
+ALKİM,ALKİM ALKALİ Kimya,İmalat,"Kimya, İlaç, Petrol, Lastik ve Plastik Ürünler",İstanbul,
+AEFES,Anadolu Efes Biracılık ve Malt,İmalat,"Gıda, İçecek ve Tütün",İstanbul,
+ARCLK,Arçelik,İmalat,"Metal Eşya, Makine, Elektrikli Cihazlar ve Ulaşım Araçları",İstanbul,
+ARDYZ,ARD Grup Bilişim Teknolojileri,Teknoloji / Bilişim,Teknoloji / Bilişim,Ankara,
+ASELS,Aselsan,Savunma,Savunma,Ankara,
+AYDEM,AYDEM Enerji,İmalat,Enerji,Denizli,
+BASGZ,Başkent Doğalgaz Dağıtım Gayrimenkul Yatırım Ortaklığı,Mali Kuruluş,Gayrimenkul Yatırım Ortaklığı,Ankara,
+BERA,Bera Holding,Mali Kuruluş,Holding,Konya,
+BIMAS,BİM Birleşik Mağazalar,Ticaret,Perakende Ticaret,İstanbul,
+BIOEN,BİOTREND Çevre ve Enerji Yatırımları,Elektrik Gaz ve Su,Elektrik Gaz ve Su,İstanbul,
+BRYAT,BORUSAN Yatırım ve Pazarlama,Mali Kuruluş,Yatırım Şirketi,İstanbul,
+BRISA,Brisa Bridgestone Sabancı Lastik,İmalat,"Kimya, İlaç, Petrol, Lastik ve Plastik Ürünler",İstanbul,
+CCOLA,Coca-Cola İçecek,İmalat,"Gıda, İçecek ve Tütün",İstanbul,
+CANTE,ÇAN2 Termik,İmalat,Elektrik Gaz ve Su,İstanbul,
+CEMAS,ÇEMAŞ Döküm Sanayi,İmalat,Metal Sanayi,Kırşehir,
+CIMSA,Çimsa Çimento,İmalat,Taş ve Toprağa Dayalı İmalat,İstanbul,
+DOHOL,Doğan Şirketler Grubu Holding,Mali Kuruluş,Holding,İstanbul,
+DOAS,Doğuş Otomotiv,Ticaret,Otel / Lokanta / Perakende Ticaret,İstanbul,
+EGEEN,Ege Endüstri ve Ticaret,İmalat,Metal Eşya / Makine / Ulaşım Araçları,İzmir,
+ECILC,EİS Eczacıbaşı İlaç,Mali Kuruluş,Holding,İstanbul,
+EKGYO,Emlak Konut Gayrimenkul Yatırım Ortaklığı,Mali Kuruluş,Gayrimenkul Yatırım Ortaklığı,İstanbul,
+ENJSA,Enerjisa,İmalat / Dağıtım,"Elektrik, Gaz ve Su",İstanbul,
+ENKAI,Enka İnşaat,İnşaat ve Bayındırlık,İnşaat ve Bayındırlık,İstanbul,
+ERBOS,Erbosan Erciyas Boru,İmalat,Metal Sanayi,Kayseri,
+EREGL,Ereğli Demir ve Çelik Fabrikaları,İmalat,Metal Sanayi,İstanbul,
+ESEN,Esenboğa Elektrik,İmalat,Enerji,Ankara,
+FROTO,Ford Otomotiv,İmalat,"Metal Eşya, Makine, Elektrikli Cihazlar ve Ulaşım Araçları",Istanbul,
+GENIL,Gen İlaç,Ticaret,Perakende Ticaret,Ankara,
+GESAN,Girişim Elektrik Sanayi,İnşaat ve Bayındırlık,İnşaat ve Bayındırlık,Ankara,
+GLYHO,Global Yatırım,Mali Kuruluş,Yatırım Şirketi,İstanbul,
+GOZDE,Gözde Girişim Sermayesi Yatırım Ortaklığı,Mali Kuruluş,Girişim Sermayesi Yatırım Ortaklığı,İstanbul,
+GUBRF,Gübre Fabrikaları,İmalat,"Kimya, İlaç, Petrol, Lastik ve Plastik Ürünler",İstanbul,
+SAHOL,Hacı Ömer Sabancı Holding,Mali Kuruluş,Holding,İstanbul,
+HEKTS,Hektaş Ticaret,İmalat,"Kimya, İlaç, Petrol, Lastik ve Plastik Ürünler",Kocaeli,
+INDES,İndeks Bilgisayar,Teknoloji,Bilişim,İstanbul,
+IPEKE,İpek Doğal Enerji,Madencilik ve Taş Ocakçılığı,Ham Petrol ve Doğal Gaz Çıkartılması,Ankara,
+ISDMR,İskenderun Demir ve Çelik,İmalat,Metal Sanayi,Hatay,
+ISFIN,İş Finansal Kiralama,Mali Kuruluş,Finansal Kiralama ve Faktoring,İstanbul,
+ISGYO,İş Gayrimenkul Yatırım Ortaklığı,Mali Kuruluş,Gayrimenkul Yatırım Ortaklığı,İstanbul,
+ISMEN,İş Yatırım Menkul Değerler,Mali Kuruluş,Aracı Kurum,İstanbul,
+IZMDC,İZDEMİR,İmalat,Metal Sanayi,Izmir,
+KRDMD,Kardemir Karabük Demir Çelik,İmalat,Metal Sanayi,Karabük,
+KARSN,Karsan Otomotiv,İmalat,"Metal Eşya, Makine, Elektrikli Cihazlar ve Ulaşım Araçları",Bursa,
+KARTN,Kartonsan,İmalat,"Kağıt ve Kağıt Ürünler, Basım ve Yayın",İstanbul,1967
+KERVT,Kerevitaş Gıda,İmalat,"Gıda, İçecek ve Tütün",İstanbul,1977
+KRVGD,Kervan Gıda,İmalat,"Gıda, İçecek ve Tütün",İstanbul,1994
+KCHOL,Koç Holding,Mali Kuruluş,Holding,İstanbul,1963
+KORDS,Kordsa Teknik Tekstil,İmalat,"Tekstil, Giyim Eşyası ve Deri",Kocaeli,1973
+KOZAL,Koza Altın İşletmeleri,Madencilik ve Taş Ocakçılığı,Kömür ve Linyit Madenciliği,Ankara,1989
+KOZAA,Koza Anadolu Metal Madencilik İşletmeleri,Madencilik ve Taş Ocakçılığı,Metal Cevheri Madenciliği,Ankara,1986
+LOGO,Logo Yazılım,Teknoloji,Bilişim,Kocaeli,1986
+MAVI,Mavi Giyim,Ticaret,Perakende Ticaret,İstanbul,1994
+MGROS,Migros Ticaret,Ticaret,Perakende Ticaret,Istanbul,2008
+NTHOL,Net Holding,Mali Kuruluş,Holding,Istanbul,1981
+ODAS,ODAŞ Elektrik,İmalat,"Elektrik, Gaz ve Su",Istanbul,2010
+OTKAR,Otokar Otomotiv ve Savunma,İmalat / Savunma,"Metal Eşya, Makine, Elektrikli Cihazlar ve Ulaşım Araçları / Savunma",Istanbul,1963
+OYAKC,OYAK Çimento Fabrikaları,İmalat,Taş ve Toprağa Dayalı İmalat,Ankara,2020
+PARSN,PARSAN Makina,İmalat,"Metal Eşya, Makine, Elektrikli Cihazlar ve Ulaşım Araçları",İstanbul,2009
+PGSUS,Pegasus Hava Taşımacılığı,Havacılık,Ulaştırma ve Depolama,İstanbul,1990
+PETKM,Petkim,İmalat,"Kimya, İlaç, Petrol, Lastik ve Plastik Ürünler",İzmir,1988
+QUAGR,QUA GRANITE,İmalat,Taş ve Toprağa Dayalı İmalat,Aydın,2015
+RTALB,RTA Laboratuvarları,İmalat,"Kimya, İlaç, Petrol, Lastik ve Plastik Ürünler",İzmit,1996
+SARKY,Sarkuysan,İmalat,Metal Sanayi,İzmit,1972
+SASA,SASA Polyester,İmalat,"Kimya, İlaç, Petrol, Lastik ve Plastik Ürünler",Adana,1966
+SELEC,Selçuk Ecza Deposu,Ticaret,ToptanTicaret,İstanbul,1970
+SKBNK,Şekerbank,Mali Kuruluş,Bankacılık,İstanbul,1953
+SOKM,Şok Marketler,Ticaret,Perakende Ticaret,İstanbul,1999
+TAVHL,TAV Havalimanları Holding,Mali Kuruluş,Holding,İstanbul,1997
+TKFEN,Tekfen Holding,Mali Kuruluş,Holding,İstanbul,1971
+TKNSA,Teknosa,Ticaret,Perakende Ticaret,İstanbul,2000
+TOASO,Tofaş Türk Otomobil Fabrikası,İmalat,"Metal Eşya, Makine, Elektrikli Cihazlar ve Ulaşım Araçları",İstanbul,1968
+TRGYO,Torunlar Gayrimenkul Yatırım Ortaklığı,Mali Kuruluş,Gayrimenkul Yatırım Ortaklığı,İstanbul,1996
+TCELL,Turkcell,Teknoloji,Haberleşme,İstanbul,1993
+TUPRS,TÜPRAŞ,İmalat,"Kimya, İlaç, Petrol, Lastik ve Plastik Ürünler",İstanbul,1983
+THYAO,Türk Hava Yolları,Havacılık,Ulaştırma ve Depolama,İstanbul,1960
+TTKOM,Türk Telekomünikasyon,Teknoloji,Haberleşme,Ankara,1994
+TTRAK,Türk Traktör,İmalat,"Metal Eşya, Makine, Elektrikli Cihazlar ve Ulaşım Araçları",Ankara,1954
+GARAN,Türkiye Garanti Bankası,Mali Kuruluş,Bankacılık,Istanbul,2008
+HALKB,Türkiye Halk Bankası,Mali Kuruluş,Bankacılık,Istanbul,1938
+ISCTR,Türkiye İş Bankası,Mali Kuruluş,Bankacılık,Istanbul,1999
+TSKB,Türkiye Sınai Kalkınma Bankası,Mali Kuruluş,Bankacılık,Istanbul,1950
+TURSG,Türkiye Sigorta,Mali Kuruluş,Sigorta Şirketi,Istanbul,1957
+SISE,Türkiye Şişe ve Cam Fabrikaları,İmalat,Taş ve Toprağa Dayalı İmalat,Istanbul,2017
+VAKBN,Türkiye Vakıflar Bankası,Mali Kuruluş,Bankacılık,Istanbul,1954
+ULKER,Ülker Bisküvi,İmalat,"Gıda, İçecek ve Tütün",Istanbul,1975
+VERUS,Verusa Holding,Mali Kuruluş,Holding,Istanbul,2006
+VESBE,Vestel Beyaz Eşya,İmalat,"Metal Eşya, Makine, Elektrikli Cihazlar ve Ulaşım Araçları",Istanbul,1997
+VESTL,Vestel Elektronik,İmalat,"Metal Eşya, Makine, Elektrikli Cihazlar ve Ulaşım Araçları",Istanbul,1983
+YKBNK,Yapı ve Kredi Bankası,Mali Kuruluş,Bankacılık,Istanbul,1944
+YATAS,Yataş,İmalat,"Tekstil, Giyim Eşyası ve Dericilik",Istanbul,1987
+ZRGYO,Ziraat Gayrimenkul Yatırım Ortaklığı,Mali Kuruluş,Gayrimenkul Yatırım Ortaklığı,Istanbul,2016
