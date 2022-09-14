@@ -72,4 +72,4 @@ if (__name__ == "__main__") | (__name__ != "__main__"):
     dic        = get_returns(tickers)
     df = pd.DataFrame.from_dict(dic, orient="index", columns=["returns"])
     df.index.name = "ticker"
-    df.to_csv("price_momentum.csv")
+    df.to_csv("C:/myml/powerbi/data/price_momentum.csv")
