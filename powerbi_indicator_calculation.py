@@ -4,7 +4,6 @@ Created on Tue Sep  6 16:51:57 2022
 
 @author: oadiguzel
 """
-
 #'dataset' holds the input data for this script
 
 import pandas as pd
@@ -12,12 +11,11 @@ import numpy as np
 import talib as ta
 from scipy import stats
 
-columns = [ "Date","Ticker","RSI", 
-            "Keltner_Upper", "Keltner_Lower", "Keltner_Middle", 
-            "slowk", "slowd"]
-df = pd.DataFrame()
+dataset = pd.read_csv("C:\myml\powerbi\data\price_data.csv")
 
-# dataset comes from powerbi pricedata tables
+#'dataset' holds the input data for this script
+
+df = pd.DataFrame()
 for t in dataset.Ticker.unique():
     temp = dataset[dataset.Ticker == t]
 
@@ -30,11 +28,15 @@ for t in dataset.Ticker.unique():
     ema   = ta.EMA(dataset.Close, 20)
     upper = ema + 2*atr
     lower = ema - 2*atr
+    temp["ATR"]            = atr
     temp["Keltner_Middle"] = ema
     temp["Keltner_Upper"]  = upper
     temp["Keltner_Lower"]  = lower
+    temp["PC_Upper"]       = temp.Close.rolling(20,1).max()
+    temp["PC_Lower"]       = temp.Close.rolling(20,1).min()
+    temp["PC_Middle"]      = (temp.PC_Upper + temp.PC_Lower) / 2
     
     temp["RSI"] = ta.RSI(temp.Close, 14)
     df = df.append(temp)
 
-dateset = dataset.merge(df[columns], left_on=["Date","Ticker"], right_on=["Date","Ticker"])
+df.to_csv("C:\myml\powerbi\data\price_data.csv",index=False)

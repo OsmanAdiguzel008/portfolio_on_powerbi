@@ -9,6 +9,9 @@ import pandas as pd
 from bs4 import BeautifulSoup
 import requests
 import yfinance as yf
+import numpy as np
+import talib as ta
+from scipy import stats
 
 class bist100:
     def __init__(self):
@@ -95,5 +98,30 @@ if __name__ == "__main__":
     bist = bist100()
     components = bist.components
     price_data = bist.get_price_clear()
+    
+    df = pd.DataFrame()
+    for t in price_data.Ticker.unique():
+        temp = price_data[price_data.Ticker == t]
+    
+        slowk, slowd  = ta.STOCH(temp.High, temp.Low, temp.Close)
+        slowk = slowk.dropna()[(np.abs(stats.zscore(slowk.dropna())) < 3)]
+        slowd = slowd.dropna()[(np.abs(stats.zscore(slowd.dropna())) < 3)]
+        temp["slowk"], temp["slowd"] = slowk, slowd
+    
+        atr   = ta.ATR(temp.High, temp.Low, temp.Close)
+        ema   = ta.EMA(temp.Close, 20)
+        upper = ema + 2*atr
+        lower = ema - 2*atr
+        temp["ATR"]            = atr
+        temp["Keltner_Middle"] = ema
+        temp["Keltner_Upper"]  = upper
+        temp["Keltner_Lower"]  = lower
+        temp["PC_Upper"]       = temp.Close.rolling(20,1).max()
+        temp["PC_Lower"]       = temp.Close.rolling(20,1).min()
+        temp["PC_Middle"]      = (temp.PC_Upper + temp.PC_Lower) / 2
+        
+        temp["RSI"] = ta.RSI(temp.Close, 14)
+        df = df.append(temp)
+    price_data = df
     price_data.to_csv("C:/myml/powerbi/data/price_data.csv", index=False)
     components.to_csv("C:/myml/powerbi/data/components.csv", index=False)
